@@ -1,10 +1,10 @@
-# DFAN
+# DFAN-HAD
 
 
 
 
 <p align="center">
-  <img src="https://github.com/iCVTEAM/PGNet/blob/master/figure/PGNet.png?raw=true" width="85%">
+  <img src="https://github.com/ChengXi-1217/DFAN-HAD/tree/main/Figure/DFAN.png?raw=true" width="85%">
 </p>
 
 > Deep Feature Aggregation Network for Hyperspectral Anomaly Detection, TIM 2024.
