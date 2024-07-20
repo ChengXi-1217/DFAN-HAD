@@ -4,7 +4,7 @@
 
 
 <p align="center">
-  <img src="https://github.com/ChengXi-1217/DFAN-HAD/blob/main/Figure/DFAN.png?raw=true" width="85%">
+  <img src="https://github.com/ChengXi-1217/DFAN-HAD/blob/main/Figure/DFAN.png?raw=true" width="60%">
 </p>
 
 > Deep Feature Aggregation Network for Hyperspectral Anomaly Detection, TIM 2024.
