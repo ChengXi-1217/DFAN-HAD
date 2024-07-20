@@ -1,4 +1,4 @@
-# DFAN-HAD
+# DFAN-HAD: Deep Feature Aggregation Network for Hyperspectral Anomaly Detection
 
 
 
