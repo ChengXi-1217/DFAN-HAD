@@ -37,7 +37,6 @@ The directory should be like this:
 -- transforms.py   (GramSchmidt Transform)
 -- utils.py        (adaptive aggregation model ,AAM)
 -- requirements.txt
-
 -- Result (.mat)
 -- Data (train dataset and test dataset)
    |-- abu-airport-4.mat
