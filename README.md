@@ -42,6 +42,9 @@ The directory should be like this:
 -- requirements.txt
 -- Result (.mat)
 -- Data (train dataset and test dataset)
+   |-- HYDICE.mat
+   |-- Salinas.mat
+   |-- abu-airport-4.mat 
    |-- abu-airport-4.mat
    |-- abu-beach-4.mat
    |-- abu-urban-1.mat
