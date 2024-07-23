@@ -9,7 +9,7 @@
 </p>
 </p>
 
- ## Feature Aggregation Network for Hyperspectral Anomaly Detection, TIM 2024. *([Paper Link](https://ieeexplore.ieee.org/abstract/document/10535312))*
+ ## Feature Aggregation Network for Hyperspectral Anomaly Detection, TIM 2024.  *([Paper Link](https://ieeexplore.ieee.org/abstract/document/10535312))*
 
 </p>
 </p>
