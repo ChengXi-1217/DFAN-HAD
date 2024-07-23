@@ -43,8 +43,6 @@ The directory should be like this:
    |-- abu-beach-4.mat
    |-- abu-urban-1.mat
    |-- abu-urban-1.mat
-
-   ...
    
 ````
 ### Training and tesing of the DFAN
