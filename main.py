@@ -47,6 +47,7 @@ def HAD(args):
     print('Dataset:', args.dataset_name)
     print('AUC: PD_PF_auc=%.5f / PF_tau_auc=%.5f' % (PD_PF_auc, PF_tau_auc))
     print('runing-time=%.5f' % runing_time)
+    print('compute-device:%s' % device.type)
 
     AD_result = AD_result.reshape((args.length, args.width))
 
