@@ -53,7 +53,11 @@ def AAM(data, args):
     for label in range(len(n_cluster)):
         center = np.mean(data[labels == n_cluster[label]], axis=0)
         centers.append(center)
-    centers = torch.tensor(centers)
+    # fix the warning:
+    # utils.py:56: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow.
+    # Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor.
+    #   centers = torch.tensor(centers)
+    centers = torch.tensor(np.array(centers))
     background_cluster_center = torch.zeros((len(background_cluster[0]), data.shape[1]))
 
     for i in range(len(background_cluster_index)):
