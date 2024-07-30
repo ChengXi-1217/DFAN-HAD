@@ -25,9 +25,11 @@ def HAD(args):
     gt = args.GT
     latent_layer_dim = args.latent_layer_dim
 
-    torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    DFAN = model.OrthoAE_Unet(args.input_dim, latent_layer_dim, args)
-    DFAN.cuda()
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    DFAN = model.OrthoAE_Unet(args.input_dim, latent_layer_dim, args).to(device)
+    # fix the bug: AssertionError: Torch not compiled with CUDA enabled
+    if torch.cuda.is_available():
+        DFAN.cuda()
 
     enc_fea, Pretrain_DFAN, args = train.pre_DFAN(data, DFAN, args)
     train_loss, Trian_DFAN, weight = train.DFAN(data, Pretrain_DFAN, args)
