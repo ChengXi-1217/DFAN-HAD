@@ -86,3 +86,10 @@ def AAM(data, args):
 
     return intra_dis, weight_mask, inter_dis, intra_center_dis_mean
 
+
+def to_cuda(tensor: torch.Tensor) -> torch.Tensor:
+    """
+    The method is used to determine whether to copy tensors from the CPU to the GPU for accelerated computation,
+    primarily used for device migration.
+    """
+    return tensor.cuda() if torch.cuda.is_available() else tensor

@@ -21,7 +21,7 @@ def pre_DFAN(train_data, AE, args):
         train_loss = 0
         AE.train()
         for idx, data in enumerate(train_load_data):
-            data = data.cuda()
+            data = utils.to_cuda(data)
             z_c, output = AE(data, args)
             loss_function = torch.nn.MSELoss()
             loss = loss_function(output, data)
@@ -45,16 +45,18 @@ def DFAN(data, model, args):
         train_loss = 0
         model.train()
         for idx, data in enumerate(train_data):
-            data = data.cuda()
+            data = utils.to_cuda(data)
             lat_fea,  output = model(data, args)
             args.intra_dis, args.weight, args.inter_dis, intra_center_dis_mean = utils.AAM(lat_fea, args)
             loss_function = torch.nn.MSELoss(reduction='none')
             rec_loss_all_pixels = torch.mean(loss_function(output, data), dim=1)
-            rec_loss = torch.matmul(args.weight.cuda(), rec_loss_all_pixels) / rec_loss_all_pixels.shape[0]
+            rec_loss = torch.matmul(utils.to_cuda(args.weight), rec_loss_all_pixels) / rec_loss_all_pixels.shape[0]
             intra_loss = args.intra_dis
             inter_loss = args.inter_dis
             intra_inter_loss_mean = intra_loss + inter_loss
-            loss = rec_loss + intra_inter_loss_mean.cuda()
+            # To prevent `grad_fn` from being `None` for `torch.tensor` variables when computing on the CPU,
+            # please maintain the current order of tensor operations.
+            loss = utils.to_cuda(intra_inter_loss_mean) + rec_loss
             optimizer.zero_grad()
             loss.backward()
             train_loss += loss.item()

@@ -1,6 +1,7 @@
 import torch
 from torch import nn, optim
 import torch.utils.data as Data
+import utils
 
 
 def DFAN(data, model, args):
@@ -10,5 +11,5 @@ def DFAN(data, model, args):
     tset_load_data = Data.DataLoader(data, batch_size=40000, shuffle=False)
     with torch.no_grad():
         for batch_idx, data in enumerate(tset_load_data):
-            lat_fea, output = model(data.cuda(), args)
+            lat_fea, output = model(utils.to_cuda(data), args)
     return lat_fea, output
